@@ -1,215 +1,235 @@
-Priyanshu Kumar - Computational Structural Biologist Portfolio
-Show Image
-Show Image
-Show Image
-Show Image
-🚀 Live Demo
-View Portfolio
-📋 Overview
-A modern, responsive portfolio website showcasing computational structural biology research, machine learning projects, and academic achievements. Built with Next.js, React, and Tailwind CSS with smooth animations and a professional design.
-✨ Features
-🎨 Design & UX
+# 🧬 Priyanshu Kumar - Computational Structural Biologist Portfolio
 
-Responsive Design: Mobile-first approach, works on all devices
-Dark/Light Mode: Automatic system detection + manual toggle
-Smooth Animations: Framer Motion for professional transitions
-Modern UI: Glass morphism, gradients, and contemporary design
+A modern, fully responsive personal portfolio website built with **Next.js**, **React**, and **Tailwind CSS**. This site showcases my research in computational structural biology, machine learning projects, and academic achievements — all wrapped in a sleek, animated UI.
 
-🧭 Sections
+[🚀 Live Demo](https://mrrajat1809.github.io/priyanshu_portfolio)
 
-Hero Section: Introduction with call-to-action buttons
-About Section: Education, skills, achievements, and downloadable resume
-Research Section: Publications, research areas, and academic vision
-Projects Section: Featured projects with detailed modals and tech stacks
-Contact Section: Interactive form with multiple contact methods
+---
 
-🛠️ Technical Features
+## 📋 Overview
 
-SEO Optimized: Meta tags, Open Graph, structured data, sitemap
-Performance: Optimized images, lazy loading, code splitting
-Analytics: Google Analytics and performance monitoring
-GitHub Pages: Automated deployment via GitHub Actions
-Form Handling: Contact form with validation and submission
+This portfolio is designed to:
 
-🏗️ Project Structure
-priyanshu-portfolio/
-├── 📁 .github/
-│   └── workflows/
-│       └── deploy.yml              # GitHub Actions deployment
-├── 📁 components/
-│   ├── AboutSection.js             # About page with education & skills
-│   ├── ContactSection.js           # Contact form with validation  
-│   ├── HeroSection.js              # Landing hero with animations
-│   ├── Navbar.js                   # Navigation with theme toggle
-│   ├── ProjectsSection.js          # Projects grid with modals
-│   ├── ResearchSection.js          # Publications and research
-│   ├── SEO.js                      # SEO component with meta tags
-│   ├── Analytics.js                # Google Analytics integration
-│   ├── ErrorBoundary.js            # Error handling wrapper
-│   ├── Loading.js                  # Loading components
-│   └── PerformanceMonitor.js       # Dev tools for optimization
-├── 📁 contexts/
-│   └── ThemeProvider.js            # Dark/light theme management
-├── 📁 pages/
-│   ├── _app.js                     # Next.js app wrapper
-│   ├── _document.js                # HTML document structure
-│   ├── index.js                    # Main homepage
-│   └── sitemap.xml.js              # Dynamic sitemap generation
-├── 📁 public/
-│   ├── favicon.ico                 # Site favicon
-│   ├── images/
-│   │   ├── profile.jpg             # Profile picture
-│   │   └── og-image.jpg            # Social media preview
-│   ├── resume.pdf                  # Downloadable resume
-│   └── robots.txt                  # SEO robots file
-├── 📁 styles/
-│   └── globals.css                 # Global styles with utilities
-├── ⚙️ next.config.js               # Next.js configuration
-├── ⚙️ tailwind.config.js           # Tailwind CSS configuration
-├── ⚙️ package.json                 # Dependencies and scripts
-└── 📄 README.md                    # This file
-🛠️ Tech Stack
-Frontend
+* Highlight your **research publications** and academic vision
+* Display **projects** with detailed modal views
+* Serve as a gateway for **collaboration, outreach, or grad school applications**
 
-Framework: Next.js 14 (React 18)
-Styling: Tailwind CSS 3.3
-Animations: Framer Motion 10.x
-Icons: Lucide React
-Language: JavaScript (ES6+)
+---
 
-Development & Deployment
+## ✨ Features
 
-Build Tool: Next.js built-in
-Linting: ESLint + Prettier
-Deployment: GitHub Pages via GitHub Actions
-Version Control: Git + GitHub
+### 🎨 Design & UX
 
-External Integrations
+* **Responsive Design** – Fully mobile-friendly layout
+* **Dark/Light Mode** – System preference + manual toggle
+* **Framer Motion Animations** – Smooth transitions for professional polish
+* **Modern UI** – Glassmorphism, gradients, and accessible design
 
-Analytics: Google Analytics 4
-Forms: Native form handling
-SEO: Next.js built-in + custom meta
+### 🧭 Website Sections
 
-🚀 Getting Started
-Prerequisites
+* **Hero Section** – Intro + call-to-action
+* **About Section** – Education, skills, achievements, resume
+* **Research Section** – Publications, research areas
+* **Projects Section** – Modal cards with tech stack
+* **Contact Section** – Validated form with multiple methods
 
-Node.js 18.0.0 or higher
-npm or yarn package manager
-Git
+### 🛠️ Technical Highlights
 
-Installation
+* **SEO Optimized** – Meta tags, Open Graph, JSON-LD, sitemap
+* **Performance** – Lazy loading, code splitting, image optimization
+* **Analytics** – Google Analytics & performance monitoring
+* **CI/CD** – GitHub Actions for auto-deployment to GitHub Pages
+* **Error Handling** – Error boundaries and performance monitoring
 
-Clone the repository
-bashgit clone https://github.com/MrRajat1809/priyanshu_portfolio.git
+---
+
+## 🏗️ Project Structure
+
+```
+priyanshu_portfolio/
+├── .github/workflows/deploy.yml     # GitHub Actions deployment
+├── components/                      # All UI sections and helpers
+│   ├── HeroSection.js
+│   ├── AboutSection.js
+│   ├── ProjectsSection.js
+│   ├── ResearchSection.js
+│   ├── ContactSection.js
+│   ├── SEO.js
+│   ├── Analytics.js
+│   ├── Loading.js
+│   ├── ErrorBoundary.js
+│   └── PerformanceMonitor.js
+├── contexts/
+│   └── ThemeProvider.js
+├── pages/
+│   ├── _app.js
+│   ├── _document.js
+│   ├── index.js
+│   └── sitemap.xml.js
+├── public/
+│   ├── images/                      # Profile, social images
+│   ├── resume.pdf
+│   └── robots.txt
+├── styles/
+│   └── globals.css
+├── tailwind.config.js
+├── next.config.js
+├── package.json
+└── README.md
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* **Framework**: Next.js 14 (React 18)
+* **Language**: JavaScript (ES6+)
+* **Styling**: Tailwind CSS 3.3
+* **Animations**: Framer Motion
+* **Icons**: Lucide React
+
+### Development & Deployment
+
+* **Linting**: ESLint + Prettier
+* **CI/CD**: GitHub Actions + GitHub Pages
+* **Analytics**: Google Analytics 4
+
+---
+
+## 🚀 Getting Started
+
+### 🩰 Prerequisites
+
+* Node.js 18+
+* npm or yarn
+* Git
+
+### 📆 Installation
+
+```bash
+git clone https://github.com/MrRajat1809/priyanshu_portfolio.git
 cd priyanshu_portfolio
+npm install # or yarn install
+```
 
-Install dependencies
-bashnpm install
-# or
-yarn install
+### 🔧 Optional: Add Environment Variables
 
-Set up environment variables (Optional)
-bash# Create .env.local file
+Create a `.env.local` file in the root directory:
+
+```
 NEXT_PUBLIC_GA_ID=your_google_analytics_id
 NEXT_PUBLIC_CLARITY_ID=your_clarity_id
+```
 
-Run development server
-bashnpm run dev
-# or
-yarn dev
+### 💻 Run Development Server
 
-Open in browser
-Navigate to http://localhost:3000
+```bash
+npm run dev
+# Open http://localhost:3000
+```
 
-📝 Available Scripts
-bash# Development
-npm run dev          # Start development server
-npm run build        # Build for production
-npm run start        # Start production server
+---
+
+## 📜 Available Scripts
+
+```bash
+# Local Development
+npm run dev
+
+# Production Build
+npm run build
+npm run start
+
+# Static Export for GitHub Pages
+npm run export
 
 # Code Quality
-npm run lint         # Run ESLint
-npm run lint:fix     # Fix lint issues automatically
+npm run lint
+npm run lint:fix
 
-# Deployment
-npm run deploy       # Build and prepare for deployment
-npm run export       # Export static files for GitHub Pages
+# Analyze Bundle
+npm run analyze
+npm run size-limit
+```
 
-# Analysis
-npm run analyze      # Bundle analyzer
-npm run size-limit   # Check bundle sizes
-🎨 Customization
-📝 Content Updates
+---
 
-Personal Information: Update components/HeroSection.js and components/AboutSection.js
-Research: Modify publications in components/ResearchSection.js
-Projects: Update project data in components/ProjectsSection.js
-Resume: Replace public/resume.pdf with your own
+## 🎨 Customization Guide
 
-🎨 Styling
+### 📝 Content
 
-Colors: Update theme colors in tailwind.config.js
-Fonts: Modify font imports in pages/_document.js
-Animations: Customize Framer Motion variants in components
+* **Hero & About** → `components/HeroSection.js` & `AboutSection.js`
+* **Resume** → Replace `public/resume.pdf`
+* **Research** → `components/ResearchSection.js`
+* **Projects** → `components/ProjectsSection.js`
 
-⚙️ Configuration
+### 🎨 Styling
 
-SEO: Update meta tags in components/SEO.js
-Analytics: Configure tracking in components/Analytics.js
-Deployment: Modify next.config.js for different hosting
+* **Theme & Colors** → `tailwind.config.js`
+* **Fonts** → Modify in `pages/_document.js`
+* **Animations** → Inside each component (`Framer Motion` variants)
 
-🚀 Deployment
-GitHub Pages (Current Setup)
+### ⚙️ Configuration
 
-Push to main branch
-GitHub Actions automatically builds and deploys
-Site available at: https://mrrajat1809.github.io/priyanshu_portfolio
+* **SEO** → `components/SEO.js`
+* **Analytics** → `components/Analytics.js`
+* **Deployment** → Adjust `next.config.js`
 
-Alternative Deployments
+---
 
-Vercel: Connect GitHub repo for instant deployment
-Netlify: Drag & drop /out folder after npm run build
-Custom Server: Use npm run start after building
+## 🚀 Deployment Instructions
 
-📊 Performance
-Optimization Features
+### ✅ GitHub Pages (CI/CD)
 
-Image Optimization: Next.js automatic optimization
-Code Splitting: Automatic chunk splitting
-Lazy Loading: Components load on demand
-Bundle Analysis: Monitor size with npm run analyze
+* Push to the `main` branch
+* GitHub Actions will automatically build and deploy
+* Your site will be available at:
+  `https://mrrajat1809.github.io/priyanshu_portfolio`
 
-Lighthouse Scores (Target)
+### 🗭 Alternatives
 
-Performance: 95+
-Accessibility: 100
-Best Practices: 100
-SEO: 100
+* **Vercel** – Instant builds from GitHub
+* **Netlify** – Drag and drop `/out` folder after `npm run export`
 
-🔧 Development Tools
-Included Dev Features
+---
 
-Error Boundaries: Graceful error handling
-Performance Monitor: Real-time metrics in development
-Dark Mode: System preference detection
-Hot Reload: Instant updates during development
+## 📊 Performance Optimization
 
-📞 Contact & Support
-Priyanshu Kumar
+* Image optimization with Next.js
+* Code splitting and lazy loading
+* Lighthouse target scores:
 
-Email: rkp6055@gmail.com
-LinkedIn: priyanshu-kumar1809
-GitHub: MrRajat1809
-Portfolio: Live Site
+  * 🟢 Performance: 95+
+  * 🟢 Accessibility: 100
+  * 🟢 Best Practices: 100
+  * 🟢 SEO: 100
 
-📄 License
-This project is open source and available under the MIT License.
-🙏 Acknowledgments
+---
 
-Next.js Team: For the amazing framework
-Tailwind CSS: For the utility-first styling
-Framer Motion: For smooth animations
-Lucide React: For beautiful icons
+## 📞 Contact
 
+**Priyanshu Kumar**
+📧 [rkp6055@gmail.com](mailto:rkp6055@gmail.com)
+🔗 [LinkedIn](https://linkedin.com/in/priyanshu-kumar1809)
+🔗 [GitHub](https://github.com/MrRajat1809)
 
-Last Updated: January 2025
+---
+
+## 📄 License
+
+This project is open source under the **MIT License**.
+
+---
+
+## 🙏 Acknowledgments
+
+* [Next.js](https://nextjs.org)
+* [Tailwind CSS](https://tailwindcss.com)
+* [Framer Motion](https://www.framer.com/motion/)
+* [Lucide Icons](https://lucide.dev)
+
+---
+
+*Last Updated: January 2025*
