@@ -1,0 +1,70 @@
+# Robots.txt for Priyanshu Kumar's Portfolio
+
+User-agent: *
+Allow: /
+
+# Allow all web crawlers access to the portfolio
+Allow: /about
+Allow: /research
+Allow: /projects
+Allow: /contact
+
+# Disallow access to build files and development directories
+Disallow: /_next/
+Disallow: /api/
+Disallow: /*.json$
+
+# Specific crawlers for better indexing
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: AcademicBot
+Allow: /
+
+User-agent: GoogleBot-Image
+Allow: /images/
+
+User-agent: GoogleBot-News
+Allow: /
+
+# Sitemap location
+Sitemap: https://mrrajat1809.github.io/priyanshu_portfolio/sitemap.xml
+
+# Additional directives for academic/research content
+# Allow academic search engines and citation trackers
+User-agent: *academic*
+Allow: /
+
+User-agent: *scholar*
+Allow: /
+
+User-agent: *research*
+Allow: /
+
+User-agent: *citation*
+Allow: /
+
+# Special cases for social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# SEO improvements
+# Crawl-delay for general bots
+Crawl-delay: 2
+
+# Cache directive
+Cache-Control: public, max-age=31536000
