@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for theming */
+:root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --primary: 59 130 246;
+    --border: 226 232 240;
+}
+
+.dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --primary: 147 197 253;
+    --border: 71 85 105;
+}
+
+/* Base styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #94a3b8;
+        background-clip: content-box;
+    }
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+    background-clip: content-box;
+}
+
+    .dark ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+        background-clip: content-box;
+    }
+
+/* Selection styles */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: inherit;
+}
+
+.dark ::selection {
+    background: rgba(147, 197, 253, 0.3);
+}
+
+/* Focus styles */
+*:focus-visible {
+    outline: 2px solid rgb(59, 130, 246);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Smooth transitions for all elements */
+* {
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+/* Gradient text utility */
+.gradient-text {
+    background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient 6s ease infinite;
+}
+
+@keyframes gradient {
+    0%, 100% {
+        background-size: 200% 200%;
+        background-position: left center;
+    }
+
+    50% {
+        background-size: 200% 200%;
+        background-position: right center;
+    }
+}
+
+/* Glass morphism effect */
+.glass {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Line clamping utilities */
+.line-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    -webkit-line-clamp: 3;
+}
+
+.line-clamp-4 {
+    -webkit-line-clamp: 4;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Slower pulse animation */
+.animate-pulse-slow {
+    animation: pulse 3s infinite;
+}
+
+/* Text shadow utilities */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Animated underlines */
+.animated-underline {
+    position: relative;
+}
+
+    .animated-underline::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease-out;
+    }
+
+    .animated-underline:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+/* Card hover effects */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+.dark .card-hover:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .text-5xl {
+        font-size: 2.5rem;
+    }
+
+    .text-6xl {
+        font-size: 3rem;
+    }
+
+    .text-7xl {
+        font-size: 3.5rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .gradient-text {
+        background: none !important;
+        color: currentColor !important;
+        text-decoration: underline;
+    }
+
+    .glass {
+        background: white !important;
+        border: 2px solid black !important;
+        backdrop-filter: none !important;
+    }
+
+    .dark .glass {
+        background: black !important;
+        border: 2px solid white !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .animate-float,
+    .animate-gradient,
+    .animate-pulse-slow {
+        animation: none !important;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-transparency) {
+    .glass {
+        background: white !important;
+        backdrop-filter: none !important;
+    }
+
+    .dark .glass {
+        background: rgb(31 41 55) !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+        color: black !important;
+        background: white !important;
+    }
+
+    .gradient-text {
+        color: rgb(31 41 55) !important;
+        background: none !important;
+        -webkit-background-clip: unset !important;
+        background-clip: unset !important;
+    }
+}
