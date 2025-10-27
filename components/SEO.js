@@ -4,7 +4,7 @@ export default function SEO({
     title = "Priyanshu Kumar - Computational Structural Biology | Network Science | Research",
     description = "Biotechnology undergraduate with research focus on computational structural biology and network science. First-author bioRxiv publication on AlphaFold structure evaluation methodology, analyzing 145,000+ protein structures with machine learning approaches.",
     canonical = "https://mrrajat1809.github.io/priyanshu_portfolio",
-    ogImage = "/images/og-image.jpg",
+    ogImage = "https://mrrajat1809.github.io/priyanshu_portfolio/images/og-image.jpg",
     ogType = "website",
     twitterCard = "summary_large_image",
     structuredData,

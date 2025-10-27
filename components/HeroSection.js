@@ -5,6 +5,8 @@ import { ArrowDown, Download, Github, Linkedin, Mail, ExternalLink } from 'lucid
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/priyanshu_portfolio' : '';
+
 export default function HeroSection() {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -50,7 +52,7 @@ export default function HeroSection() {
     const socialLinks = [
         { icon: Github, href: "https://github.com/MrRajat1809", label: "GitHub" },
         { icon: Linkedin, href: "https://linkedin.com/in/priyanshu-kumar1809", label: "LinkedIn" },
-        { icon: ExternalLink, href: "https://mrrajat1809.github.io/priyanshu_portfolio", label: "Personal Site" }
+        { icon: ExternalLink, href: "https://mrrajat1809.github.io/priyanshu_portfolio", label: "Portfolio" }
     ];
 
     return (
@@ -98,7 +100,7 @@ export default function HeroSection() {
                             className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-1"
                         />
                         <Image
-                            src="/images/profile.jpg"
+                            src={`${basePath}/images/profile.jpg`}
                             alt="Priyanshu Kumar"
                             width={140}
                             height={140}
@@ -170,7 +172,7 @@ export default function HeroSection() {
                     <motion.a
                         whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)" }}
                         whileTap={{ scale: 0.95 }}
-                        href="/priyanshu_portfolio/resume.pdf"
+                        href={`${basePath}/resume.pdf`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 bg-gray-900 hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl text-sm md:text-base"
