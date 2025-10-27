@@ -65,15 +65,18 @@ priyanshu_portfolio/
 │   ├── _app.js
 │   ├── _document.js
 │   ├── index.js
+│   ├── 404.js                       # Custom 404 error page
 │   └── sitemap.xml.js
 ├── public/
 │   ├── images/                      # Profile, social images
 │   ├── resume.pdf
-│   └── robots.txt
+│   ├── robots.txt
+│   └── .nojekyll                    # GitHub Pages config
 ├── styles/
 │   └── globals.css
 ├── tailwind.config.js
 ├── next.config.js
+├── lighthouse.config.js             # Lighthouse CI config
 ├── package.json
 └── README.md
 ```
