@@ -56,9 +56,6 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Export static site
-        run: node ./scripts/export-static.js
-
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
 
