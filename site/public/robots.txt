@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mrrajat1809.github.io/priyanshu_portfolio/sitemap.xml

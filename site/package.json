@@ -1,0 +1,55 @@
+{
+  "name": "priyanshu-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Research portfolio of Priyanshu Kumar: sepsis research and clinical data science",
+  "author": {
+    "name": "Priyanshu Kumar",
+    "email": "24bbe10100@cuchd.in",
+    "url": "https://github.com/MrRajat1809"
+  },
+  "homepage": "https://mrrajat1809.github.io/priyanshu_portfolio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrRajat1809/priyanshu_portfolio.git"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "map": "python scripts/build_sepsis_map.py"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.294.0",
+    "marked": "^18.0.14",
+    "next": "14.0.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "14.0.4",
+    "eslint-config-prettier": "^9.0.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 120,
+    "tabWidth": 2
+  },
+  "eslintConfig": {
+    "extends": [
+      "next/core-web-vitals",
+      "prettier"
+    ]
+  }
+}

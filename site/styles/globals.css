@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Palette follows the ClinicalTensorSepsis figure style: near-black ink,
+   grey rules, and the cream-to-red sequential scale for burden. The light
+   theme uses a muted paper white rather than pure white to reduce glare. */
+:root {
+  --bg: 240 238 233;
+  --surface: 232 229 223;
+  --ink: 38 37 35;
+  --muted: 96 94 90;
+  --line: 214 210 202;
+  --line-strong: 180 175 166;
+  --accent: 183 49 46;
+
+  --map-0: 253 244 214;
+  --map-1: 252 224 130;
+  --map-2: 243 176 50;
+  --map-3: 233 114 51;
+  --map-4: 215 66 65;
+  --map-na: 219 216 210;
+  /* Warm grey borders keep the palest class readable against the page. */
+  --map-stroke: 196 188 172;
+
+  --status-published: 85 168 104;
+  --status-submitted: 74 111 227;
+  --status-ongoing: 243 176 50;
+  --status-planned: 187 187 187;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: 17 19 21;
+  --surface: 26 29 32;
+  --ink: 232 232 230;
+  --muted: 160 160 160;
+  --line: 46 50 54;
+  --line-strong: 72 77 82;
+  --accent: 240 110 100;
+
+  /* Luminance rises with burden on a dark ground, so the scale still reads. */
+  --map-0: 58 48 41;
+  --map-1: 106 69 38;
+  --map-2: 163 90 40;
+  --map-3: 217 114 47;
+  --map-4: 240 78 67;
+  --map-na: 52 56 60;
+  --map-stroke: 17 19 21;
+
+  --status-planned: 110 115 120;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-serif;
+  }
+
+  a {
+    @apply underline-offset-4;
+  }
+
+  ::selection {
+    background: rgb(var(--map-1) / 0.6);
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent));
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+
+  .link {
+    @apply underline decoration-line-strong hover:decoration-accent hover:text-accent;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Choropleth classes */
+.bin-0 { fill: rgb(var(--map-0)); background-color: rgb(var(--map-0)); }
+.bin-1 { fill: rgb(var(--map-1)); background-color: rgb(var(--map-1)); }
+.bin-2 { fill: rgb(var(--map-2)); background-color: rgb(var(--map-2)); }
+.bin-3 { fill: rgb(var(--map-3)); background-color: rgb(var(--map-3)); }
+.bin-4 { fill: rgb(var(--map-4)); background-color: rgb(var(--map-4)); }
+.bin-na { fill: rgb(var(--map-na)); background-color: rgb(var(--map-na)); }
+
+.map-unit {
+  stroke: rgb(var(--map-stroke));
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: opacity 120ms ease;
+}
+
+.map-unit.is-dimmed { opacity: 0.18; }
+.map-unit.is-hovered { stroke: rgb(var(--ink)); stroke-width: 1; }
+
+/* Map entrance: classes fill in from lowest to highest burden. `backwards`
+   holds the start state only during the delay, so dimming still works later. */
+@keyframes map-fill {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.map-wait .map-unit { opacity: 0; }
+.map-enter .map-unit:not(.is-hovered) { animation: map-fill 900ms ease-out backwards; }
+.map-enter .bin-na,
+.map-enter .bin-0 { animation-delay: 0ms; }
+.map-enter .bin-1 { animation-delay: 220ms; }
+.map-enter .bin-2 { animation-delay: 440ms; }
+.map-enter .bin-3 { animation-delay: 660ms; }
+.map-enter .bin-4 { animation-delay: 880ms; }
+
+/* Scroll reveal. The hidden start state applies only when JavaScript runs
+   (the `js` class is set in pages/_document.js). */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 800ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js .reveal.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .map-unit { transition: none; }
+  .map-enter .map-unit:not(.is-hovered) { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* Personal notes on project pages, rendered from Markdown. */
+.article {
+  @apply font-serif text-[1.125rem] leading-[1.75] text-ink;
+}
+
+.article > * + * { margin-top: 1.25em; }
+.article h2 { @apply mt-14 font-serif text-2xl font-semibold leading-snug tracking-tight; }
+.article h3 { @apply mt-10 font-sans text-lg font-medium; }
+.article h4 { @apply mt-8 font-sans text-base font-medium; }
+.article h2 + *,
+.article h3 + *,
+.article h4 + * { margin-top: 0.75em; }
+.article a { @apply underline decoration-line-strong underline-offset-4 hover:text-accent hover:decoration-accent; }
+.article strong { @apply font-semibold; }
+.article ul { @apply list-disc pl-6; }
+.article ol { @apply list-decimal pl-6; }
+.article li + li { margin-top: 0.4em; }
+.article li::marker { color: rgb(var(--muted)); }
+.article blockquote { @apply border-l-2 border-line-strong pl-5 italic text-muted; }
+.article hr { @apply my-12 border-line; }
+.article code { @apply rounded bg-surface px-1.5 py-0.5 font-mono text-[0.85em]; }
+.article pre { @apply overflow-x-auto rounded border border-line bg-surface p-4 font-mono text-sm leading-relaxed; }
+.article pre code { @apply bg-transparent p-0 text-[1em]; }
+.article img { @apply h-auto max-w-full rounded border border-line; }
+.article table { @apply w-full border-collapse font-sans text-sm; }
+.article th,
+.article td { @apply border-b border-line px-3 py-2 text-left align-top; }
+.article th { @apply font-medium; }
+
+@media print {
+  header,
+  footer { display: none; }
+}
+
+/* Paper figures: in the light theme, white figure backgrounds take on the
+   page tone instead of showing as bright blocks; on the dark theme they keep
+   a white card so the figure colours stay true. */
+.figure-img,
+.article img {
+  background-color: #fff;
+}
+
+:root:not(.dark) .figure-img,
+:root:not(.dark) .article img {
+  background-color: transparent;
+  mix-blend-mode: multiply;
+}
